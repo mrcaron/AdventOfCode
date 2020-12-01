@@ -29,3 +29,4 @@ For future me...
 
 * https://nnarain.github.io/2016/08/30/Using-GTest-with-CMake-and-Visual-Studio.html
 * https://chromium.googlesource.com/external/github.com/google/googletest/+/HEAD/googlemock/docs/for_dummies.md
+* https://gitlab.kitware.com/cmake/community/-/wikis/doc/ctest/Testing-With-CTest
