@@ -15,4 +15,5 @@ include_directories(
 add_executable(${BINARY} ${TEST_SOURCES})
 target_link_libraries(${BINARY} ${GTEST_LIBRARIES} ${GTEST_MAIN_LIBRARIES} pthread ${CMAKE_PROJECT_NAME}_lib)
 
+enable_testing()
 gtest_discover_tests(${BINARY})
