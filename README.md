@@ -13,3 +13,12 @@ Then use the codespace to edit your `~/.bashrc` file and update your `PATH` to i
     export PATH="/usr/local/bin:$PATH"
 
 Finally, you'll have to disconnet from your codespace session and reconnect. Then cmake will be latest.
+
+## A Note on Google Test
+
+This CMake project uses Google Test, but to get it to build, you need to first install Google Test. You can do this in the following way:
+
+    sudo apt install libgtest-dev
+    cd /usr/src/googletest
+    sudo cmake .
+    sudo cmake --build . --target install
