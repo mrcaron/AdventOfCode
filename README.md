@@ -22,3 +22,10 @@ This CMake project uses Google Test, but to get it to build, you need to first i
     cd /usr/src/googletest
     sudo cmake .
     sudo cmake --build . --target install
+    
+## See Also
+
+For future me...
+
+* https://nnarain.github.io/2016/08/30/Using-GTest-with-CMake-and-Visual-Studio.html
+* https://chromium.googlesource.com/external/github.com/google/googletest/+/HEAD/googlemock/docs/for_dummies.md
