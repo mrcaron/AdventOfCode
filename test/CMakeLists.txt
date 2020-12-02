@@ -65,7 +65,8 @@ set(CMAKE_CXX_FLAGS "-g -O0 -Wall --coverage")
 setup_target_for_coverage_gcovr_xml(
     NAME coverage
     EXECUTABLE ${BINARY}
-    BASE_DIR ${PROJECT_SOURCE_DIR}/src)
+    BASE_DIR ${PROJECT_SOURCE_DIR}/src
+    EXCLUDE ${PROJECT_SOURCE_DIR}/test)
 
 # Make sure to clean up the coverage folder
 set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES coverage)
