@@ -1,4 +1,3 @@
-[![Coverage Status](https://coveralls.io/repos/github/mrcaron/AdventOfCode/badge.svg?branch=main)](https://coveralls.io/github/mrcaron/AdventOfCode?branch=main)
 [![codecov](https://codecov.io/gh/mrcaron/AdventOfCode/branch/main/graph/badge.svg?token=V00SXCZM13)](https://codecov.io/gh/mrcaron/AdventOfCode)
 
 # AdventOfCode
