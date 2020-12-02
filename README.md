@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/mrcaron/AdventOfCode/badge.svg?branch=main)](https://coveralls.io/github/mrcaron/AdventOfCode?branch=main)
+
 # AdventOfCode
 My journeys into Advent of Code
 
