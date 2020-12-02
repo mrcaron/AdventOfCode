@@ -1,3 +1,4 @@
+[![CircleCI](https://img.shields.io/circleci/build/gh/mrcaron/AdventOfCode)](https://circleci.com/gh/mrcaron/AdventOfCode)
 [![codecov](https://codecov.io/gh/mrcaron/AdventOfCode/branch/main/graph/badge.svg?token=V00SXCZM13)](https://codecov.io/gh/mrcaron/AdventOfCode)
 
 # AdventOfCode
