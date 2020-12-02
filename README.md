@@ -24,6 +24,10 @@ This CMake project uses Google Test, but to get it to build, you need to first i
     cd /usr/src/googletest
     sudo cmake .
     sudo cmake --build . --target install
+
+## A Note on code coverage
+
+I'm supporting code coverage... or at least trying to, with the help of [Coveralls.io](https://coveralls.io). Trying to wire it up at the moment.
     
 ## See Also
 
@@ -33,3 +37,5 @@ For future me...
 * https://chromium.googlesource.com/external/github.com/google/googletest/+/HEAD/googlemock/docs/for_dummies.md
 * https://gitlab.kitware.com/cmake/community/-/wikis/doc/ctest/Testing-With-CTest
 * https://thoughts-on-coding.com/2020/04/20/a-cpp-github-template-repository-utilizing-circleci-cmake-docker-and-doxygen/
+* https://medium.com/@naveen.maltesh/generating-code-coverage-report-using-gnu-gcov-lcov-ee54a4de3f11 
+* https://dr-kino.github.io/2019/12/22/test-coverage-using-gtest-gcov-and-lcov/
