@@ -17,7 +17,9 @@ jobs:
             rm -rf /var/lib/apt/lists/*
       - run:
           name: Installing CURL
-          command: 'apt install curl'
+          command: |
+            sudo apt-get upgrade
+            sudo apt install curl
       - run:
           name: Installing GCC
           command: 'apt-get update && apt-get install -y gcc g++'
