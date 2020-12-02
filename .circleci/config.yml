@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: debian:stretchauth:
+      - image: debian:stretch
           username: radman  # can specify string literal values
           password: $DOCKERHUB_PASSWORD  # or project environment variable reference
     steps:
