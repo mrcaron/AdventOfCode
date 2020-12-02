@@ -11,6 +11,8 @@ find_package(Threads REQUIRED)
 
 #include the GoogleTest module, which allows you to search for tests using gtest_discover_tests
 include(GoogleTest)
+include(CTestCoverageCollectGCOV)
+
 
 #include direcctory search path inclusinos
 include_directories(
