@@ -27,7 +27,10 @@ This CMake project uses Google Test, but to get it to build, you need to first i
 
 ## A Note on code coverage
 
-I'm supporting code coverage... or at least trying to, with the help of [Coveralls.io](https://coveralls.io). Trying to wire it up at the moment.
+I'm supporting code coverage... or at least trying to, with the help of [Coveralls.io](https://coveralls.io). Trying to wire it up at the moment with GCovr (a python module).
+
+    pip install setuptools
+    pip install gcovr
     
 ## See Also
 
@@ -39,3 +42,5 @@ For future me...
 * https://thoughts-on-coding.com/2020/04/20/a-cpp-github-template-repository-utilizing-circleci-cmake-docker-and-doxygen/
 * https://medium.com/@naveen.maltesh/generating-code-coverage-report-using-gnu-gcov-lcov-ee54a4de3f11 
 * https://dr-kino.github.io/2019/12/22/test-coverage-using-gtest-gcov-and-lcov/
+* [Using CPPCheck with CMake](https://stackoverflow.com/a/48630368/2836)
+* [Using gcov and CMake](https://stackoverflow.com/questions/13116488/detailed-guide-on-using-gcov-with-cmake-cdash/16536401#16536401)
