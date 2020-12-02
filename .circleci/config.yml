@@ -21,7 +21,8 @@ jobs:
       - run:
           name: Installing PIP
           command: |
-            python < (curl https://bootstrap.pypa.io/get-pip.py)
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python ./get-pip.py
             python -m pip install -U pip
       - run:
           name: Installing CMAKE
