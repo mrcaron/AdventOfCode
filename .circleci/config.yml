@@ -1,68 +1,56 @@
 version: 2.1
 
+executors:
+  exectr:
+    docker:
+      - image: radman/CppDockerContainer:latest
+
 jobs:
   build:
-    docker:
-      - image: debian:stretch
-        auth:
-          username: radman  # can specify string literal values
-          password: $DOCKERHUB_PASSWORD  # or project environment variable reference
+    executor: exectr
     steps:
       - checkout
       - run:
-          name: Installing SUDO
+          name: Setup googletest
           command: |
-            apt-get update
-            apt-get install -y sudo
-            rm -rf /var/lib/apt/lists/*
-      - run:
-          name: Installing CURL
-          command: |
-            sudo apt-get upgrade
-            sudo apt install curl
-      - run:
-          name: Installing GCC
-          command: 'apt-get update && apt-get install -y gcc g++'
-      - run:
-          name: Installing PIP
-          command: |
-            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-            python ./get-pip.py
-            python -m pip install -U pip
-      - run:
-          name: Installing CMAKE
-          command: |
-            sudo pip insatll cmake
-      - run:
-          name: Installing GTest
-          command: |
-            sudo apt install libgtest-dev
-            cd /usr/src/googletest
-            export PATH='/usr/local/bin:$PATH'
-            sudo cmake .
-            sudo cmake --build . --target install
-      - run:
-          name: Installing Code Coverage
-          command: |
-            #pip install setuptools
-            pip install gcovr
+            cd third_party
+            git submodule init
+            git submodule update
       - run: 
           name: Configure the build
           command: |
             export PATH='/usr/local/bin:$PATH'
             mkdir build
-            cd build
-            cmake .. -DCMAKE_BUILD_TYPE=Debug
+            cmake . -DCMAKE_BUILD_TYPE=Debug -B build
       - run: 
           name: Build the code
           command: |
             export PATH='/usr/local/bin:$PATH'
             cd build
             make
-      - run: 
-          name: Run coverage
+      - persist_to_workspace:
+          root: .
+          paths: build
+  
+  test:
+    executor: exectr
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Execute Tests
           command: |
-            export PATH='/usr/local/bin:$PATH'
             cd build
             make coverage
             bash <(curl -s https://codecov.io/bash)
+      - store_test_results:
+          path: build
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build

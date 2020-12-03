@@ -47,8 +47,7 @@ target_sources(${BINARY}
 set_target_properties(${BINARY} PROPERTIES COMPILE_FLAGS "${cxx_strict}")
 
 #link it against the originally built product as well as the google libraries
-target_link_libraries(${BINARY} ${GTEST_LIBRARIES})
-target_link_libraries(${BINARY} ${GTEST_MAIN_LIBRARIES})
+target_link_libraries(${BINARY} gtest)
 target_link_libraries(${BINARY} pthread)
 target_link_libraries(${BINARY} -fprofile-arcs)
 ####################################################################################################################
@@ -67,7 +66,7 @@ set(CMAKE_CXX_FLAGS "-g -O0 -Wall --coverage")
 
 setup_target_for_coverage_gcovr_xml(
     NAME coverage
-    EXECUTABLE ${BINARY}
+    EXECUTABLE ${BINARY} --gtest_output=xml:${CMAKE_BINARY_DIR}/test_report.xml
     BASE_DIR ${PROJECT_SOURCE_DIR}/src
     EXCLUDE ${PROJECT_SOURCE_DIR}/test)
 
