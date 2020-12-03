@@ -22,13 +22,12 @@ jobs:
       - run: 
           name: Configure the build
           command: |
-            export PATH='/usr/local/bin:$PATH'
+            export PATH="/usr/local/bin:$PATH"
             mkdir build
             cmake . -DCMAKE_BUILD_TYPE=Debug -B build
       - run: 
           name: Build the code
           command: |
-            export PATH='/usr/local/bin:$PATH'
             cd build
             make
       - persist_to_workspace:
