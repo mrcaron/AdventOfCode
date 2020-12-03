@@ -29,13 +29,15 @@ jobs:
             make
       - persist_to_workspace:
           root: ~/
-          paths: project
+          paths: 
+            - project
+            - project/build
   
   test:
     executor: exectr
     steps:
       - attach_workspace:
-          at: .
+          at: ~/
       - run:
           name: Execute Tests
           command: |
