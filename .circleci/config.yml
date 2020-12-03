@@ -4,6 +4,9 @@ executors:
   exectr:
     docker:
       - image: radman/cppdockercontainer:latest
+        auth:
+          username: radman
+          password: $DOCKERHUB_PASSWORD  # or project environment variable reference
 
 jobs:
   build:
