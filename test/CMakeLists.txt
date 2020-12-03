@@ -10,18 +10,18 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 include(GoogleTest)
 
 # CPP Check
-find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
+#find_program(CMAKE_CXX_CPPCHECK NAMES cppcheck)
 #set(CMAKE_CXX_CPPCHECK "cppcheck")
-if (CMAKE_CXX_CPPCHECK)
-    list(
-        APPEND CMAKE_CXX_CPPCHECK
-            "--enable=warning"
-            "--inconclusive"
-            "--force"
-            "--inline-suppr"
-            "--suppressions-list=${CMAKE_SOURCE_DIR}/CppCheckSuppressions.txt"
-    )
-endif()
+#if (CMAKE_CXX_CPPCHECK)
+#    list(
+#        APPEND CMAKE_CXX_CPPCHECK
+#            "--enable=warning"
+#            "--inconclusive"
+#            "--force"
+#            "--inline-suppr"
+#            "--suppressions-list=${CMAKE_SOURCE_DIR}/CppCheckSuppressions.txt"
+#    )
+#endif()
 
 ####################################################################################################################
 
