@@ -5,9 +5,6 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 ####################################################################################################################
 # DEPENDENCIES
 ####################################################################################################################
-find_package(GTest REQUIRED)
-#find_package(Thread REQUIRED)
-#find_package(Threads REQUIRED)
 
 #include the GoogleTest module, which allows you to search for tests using gtest_discover_tests
 include(GoogleTest)
@@ -41,7 +38,13 @@ include_directories(
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 set(SOURCES ../src/add.cpp)
 
-add_executable(${BINARY} ${TEST_SOURCES} ${SOURCES})
+add_executable(${BINARY})
+target_sources(${BINARY}
+    PRIVATE
+        ${TEST_SOURCES} 
+        ${SOURCES}
+)
+set_target_properties(${BINARY} PROPERTIES COMPILE_FLAGS "${cxx_strict}")
 
 #link it against the originally built product as well as the google libraries
 target_link_libraries(${BINARY} ${GTEST_LIBRARIES})
