@@ -3,7 +3,7 @@ version: 2.1
 executors:
   exectr:
     docker:
-      - image: radman/CppDockerContainer:latest
+      - image: radman/cppdockercontainer:latest
 
 jobs:
   build:
