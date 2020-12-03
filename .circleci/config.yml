@@ -3,7 +3,7 @@ version: 2.1
 executors:
   exectr:
     docker:
-      - image: radman/cppdockercontainer:latest
+      - image: radman/cpp_dev_container:latest
         auth:
           username: radman
           password: $DOCKERHUB_PASSWORD  # or project environment variable reference
