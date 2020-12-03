@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Execute Tests
           command: |
-            cd project/build
+            cd build
             make coverage
             bash <(curl -s https://codecov.io/bash)
       - store_test_results:
