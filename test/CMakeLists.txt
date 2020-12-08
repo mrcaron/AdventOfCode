@@ -32,11 +32,14 @@ include(GoogleTest)
 include_directories(
     ../src
     ${GTEST_INCLUDE_DIRS}
+    ${GMOCK_INCLUDE_DIRS}
 )
 
 #recursively search through this directory and put all things *.h, *.cpp in a variable called "TEST_SOURCES"
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
-set(SOURCES ../src/add.cpp)
+set(SOURCES ../src/add.cpp
+            ../src/SumFinder.cpp
+)
 
 add_executable(${BINARY})
 target_sources(${BINARY}
@@ -48,6 +51,7 @@ set_target_properties(${BINARY} PROPERTIES COMPILE_FLAGS "${cxx_strict}")
 
 #link it against the originally built product as well as the google libraries
 target_link_libraries(${BINARY} gtest)
+target_link_libraries(${BINARY} gmock)
 target_link_libraries(${BINARY} pthread)
 target_link_libraries(${BINARY} -fprofile-arcs)
 ####################################################################################################################
