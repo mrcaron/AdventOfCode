@@ -47,7 +47,7 @@ jobs:
             cd build
             make coverage
       - codecov/upload
-          file: build/coverage.xml
+          file: "build/coverage.xml"
       - store_test_results:
           path: build
 
