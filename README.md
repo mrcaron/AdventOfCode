@@ -6,6 +6,10 @@ My journeys into Advent of Code
 
 Using [this CMake tut as a starting point](https://riptutorial.com/cmake). 
 
+## Code Coverage
+
+![graph](https://codecov.io/gh/mrcaron/AdventOfCode/commit/b0ef09570a13f2959f242e28ac345af0caa8d98d/graphs/sunburst.svg)
+
 ## A Note on CMake
 Codespaces use Debian 9, which have a default installation of CMake 3.7, so it doesn't support google test. Thing to do is use pip to install the latest cmake; 
 
