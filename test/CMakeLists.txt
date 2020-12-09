@@ -37,8 +37,8 @@ include_directories(
 
 #recursively search through this directory and put all things *.h, *.cpp in a variable called "TEST_SOURCES"
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
-set(SOURCES ../src/add.cpp
-            ../src/SumFinder.cpp
+set(SOURCES 
+    ../src/SumFinder.cpp
 )
 
 add_executable(${BINARY})
