@@ -22,7 +22,7 @@ TEST (SumFinder_Find2, TwoNumbers) {
 }
 
 // These two numbers should add up to 2020
-TEST (SumFinder_Find2, FiveNumbers) {
+TEST (SumFinder_Find5, FiveNumbers) {
 
     auto sumFinderObj = SumFinder(2020);
 
@@ -32,4 +32,15 @@ TEST (SumFinder_Find2, FiveNumbers) {
     ASSERT_THAT(returned.at(0), A<int>());
     ASSERT_THAT(returned, A<vector<int>>());
     ASSERT_THAT(returned, UnorderedElementsAre(1721,299));
+}
+
+TEST (SumFinder_FindNone, FiveNumbers)
+{
+    auto sumFinderObj = SumFinder(1);
+
+    vector<int> input{1721,979,366,299,675,1456}; 
+    auto returned = sumFinderObj.Find2(input);
+
+    ASSERT_THAT(returned, A<vector<int>>());
+    ASSERT_EQ(returned.size(), 0);
 }

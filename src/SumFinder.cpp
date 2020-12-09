@@ -16,11 +16,10 @@ std::vector<int> AdventOfCode2020::SumFinder::Find2(std::vector<int> input)
         if (alt.find(i) != alt.end())
         {
             return std::vector<int>{i, _iTotal-i};
+        } else 
+        {
+            alt.insert(_iTotal-i);
         }
-
-        alt.insert(_iTotal-i);
     }
-
-    // should never get here
     return std::vector<int>{};
 }
