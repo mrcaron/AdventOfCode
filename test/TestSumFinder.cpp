@@ -9,12 +9,12 @@ using ::testing::UnorderedElementsAre;
 using ::testing::A;
 
 // These two numbers should add up to 2020
-TEST (FindSums, TwoNumbers) {
+TEST (SumFinder_Find2, TwoNumbers) {
 
     auto sumFinderObj = SumFinder(2020);
 
     vector<int> input{2000,20}; 
-    auto returned = sumFinderObj.find2(input);
+    auto returned = sumFinderObj.Find2(input);
 
     ASSERT_THAT(returned.at(0), A<int>());
     ASSERT_THAT(returned, A<vector<int>>());

@@ -13,6 +13,6 @@ namespace AdventOfCode2020
         SumFinder(int total);
         ~SumFinder();
 
-        std::vector<int> find2(std::vector<int> input);
+        std::vector<int> Find2(std::vector<int> input);
     };    
 } // namespace AdventOfCode2020

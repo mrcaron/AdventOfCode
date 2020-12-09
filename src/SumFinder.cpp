@@ -8,7 +8,7 @@ AdventOfCode2020::SumFinder::SumFinder(int total) : _iTotal(total) {}
 AdventOfCode2020::SumFinder::~SumFinder() {}
 
 // look for two numbers that sum to this one
-std::vector<int> AdventOfCode2020::SumFinder::find2(std::vector<int> input)
+std::vector<int> AdventOfCode2020::SumFinder::Find2(std::vector<int> input)
 {
     std::set<int> alt{};
     for (const auto &i : input)
