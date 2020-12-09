@@ -9,8 +9,8 @@ set(PROJ_NAME "ReportRepair"
 project(${PROJ_NAME})
 
 #tell Cmake that when looking for a compiler, use one that conforms to CPP14
-set(CMAKE_CXX_STANDARD 14
-    CACHE STRING "flags for CPP 14 standard")
+set(CMAKE_CXX_STANDARD 17
+    CACHE STRING "flags for CPP 17 standard")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
