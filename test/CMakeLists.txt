@@ -39,6 +39,7 @@ include_directories(
 file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 set(SOURCES 
     ../src/SumFinder.cpp
+    ../src/PasswordVerifier.cpp
 )
 
 add_executable(${BINARY})

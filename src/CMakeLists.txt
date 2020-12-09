@@ -1,4 +1,8 @@
-set (SOURCES main.cpp SumFinder.cpp)
+set (SOURCES 
+    main.cpp 
+    SumFinder.cpp
+    PasswordVerifier.cpp
+)
 
 # disabling cppcheck for now
 #set(CMAKE_CXX_CPPCHECK "cppcheck")
