@@ -21,7 +21,7 @@ AdventOfCode2020::PasswordVerifier::PasswordVerifier(std::string pattern)
         {
             _cKey = i;
         }
-        else if (isdigit(i))
+        else // is digit
         {
             cBuff[cCurrent] << i;
         }
