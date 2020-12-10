@@ -7,10 +7,17 @@ namespace AdventOfCode2020
     class PasswordVerifier
     {
     private:
-        std::string _sPattern;
+        char _cKey;
+        int _iMin;
+        int _iMax;
+        
     public:
         PasswordVerifier(std::string pattern);
         ~PasswordVerifier();
+
+        int GetMin();
+        int GetMax();
+        char GetKey();
 
         bool Validate(std::string password);
     };    
