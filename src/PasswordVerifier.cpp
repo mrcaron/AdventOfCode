@@ -45,12 +45,14 @@ bool AdventOfCode2020::PasswordVerifier::Validate(std::string password)
     // So you start at the minimum after you count it and end at the end of the 
     // string. There's no solution < O(N).
 
+    int charCount = 0;
     for (auto &&i : password)
     {
-        
+        if ( i == _cKey) 
+        { 
+            charCount++;
+        }
     }
-    
-
-    // TODO: Implement
-    return false;
+       
+    return charCount >= _iMin && charCount <= _iMax;
 }
