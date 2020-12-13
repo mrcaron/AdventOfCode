@@ -10,6 +10,7 @@ set (SOURCES_AOC2
 
 set (SOURCES_AOC3 
     Aoc3_Main.cpp
+    TreeDetector.cpp
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -o3")
