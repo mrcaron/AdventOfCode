@@ -4,6 +4,5 @@
 
 bool AdventOfCode2020::TreeDetector::DetectTree(const int target, const char* scanLine)
 {
-    // TODO: Impelement Algorithm
-    return false;
+    return scanLine[target % _iRightStep] == TREE;
 }
