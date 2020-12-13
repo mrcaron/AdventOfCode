@@ -8,7 +8,13 @@ set (SOURCES_AOC2
     PasswordVerifier.cpp
 )
 
-# Current make target
+set (SOURCES_AOC3 
+    Aoc3_Main.cpp
+)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -o3")
+add_executable(aoc3 ${SOURCES_AOC3})
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -o3")
 add_executable(aoc2 ${SOURCES_AOC2})
 
