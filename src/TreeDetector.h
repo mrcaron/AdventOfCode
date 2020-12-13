@@ -9,10 +9,10 @@ namespace AdventOfCode2020 {
         static const char TREE = '#';
         int _iRightStep;
     public:
-        TreeDetector(int RightStep) : _iRightStep(RightStep) {}
+        TreeDetector(const int RightStep) : _iRightStep(RightStep) {}
         ~TreeDetector() {}
 
-        bool DetectTree(const char* scanLine);
+        bool DetectTree(const int target, const char* scanLine);
     };
     
 }

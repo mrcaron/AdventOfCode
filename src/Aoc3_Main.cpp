@@ -56,6 +56,7 @@ int main(int argc, char** argv)
     int total = 0;
     // TODO: Our down step is 1 by default, we'll adjust this later to make room for an arbitrary down step.
     // since our default is to go down 1, we simply skip the first line of input
+    int currentLine = 1;
     fsInput.getline(cBuffer, 100); // Eat it into oblivion
     while( fsInput )
     {
@@ -66,9 +67,8 @@ int main(int argc, char** argv)
             //std::cout << " DEBUG: picked up empty line " << std::endl;
         } 
         else {
-            if (treeScanner.DetectTree(cBuffer)) {
-                total++;
-            }
+            total += treeScanner.DetectTree(currentLine*RightStep, cBuffer) ? 
+                1 : 0;
         }
     }
 

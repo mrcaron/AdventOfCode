@@ -40,6 +40,7 @@ file(GLOB_RECURSE TEST_SOURCES LIST_DIRECTORIES false *.h *.cpp)
 set(SOURCES 
     ../src/SumFinder.cpp
     ../src/PasswordVerifier.cpp
+    ../src/TreeDetector.cpp
 )
 
 add_executable(${BINARY})
