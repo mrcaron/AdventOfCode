@@ -10,7 +10,8 @@
 	"extensions": [
 		"ms-vscode.cpptools",
 		"ryanluker.vscode-coverage-gutters",
-		"ms-vscode.cmake-tools"
+		"ms-vscode.cmake-tools",
+		"mhutchie.git-graph"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
