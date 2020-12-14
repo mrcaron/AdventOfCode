@@ -13,7 +13,6 @@ bool AdventOfCode2020::SumFinder::Find2(std::vector<int> input, int (&found_nums
 {
     std::set<int> alt{};
     bool found = false;
-    for(int i = 0; i < input.size() && !found; i++)
     for (const auto &i : input)
     {
         if (alt.find(i) != alt.end())
