@@ -51,12 +51,13 @@ int main(int argc, char** argv)
 
     // run through the finder
     SumFinder finder(2020);
-    auto returned = finder.Find2(input);
+    int found[2];
+    auto returned = finder.Find2(input,found);
 
-    if (returned.size() == 2)
+    if (returned)
     {
-        std::cout << "(" << returned.at(0) << ", " << returned.at(1) << ")" << std::endl;
-        std::cout << "Result: " << returned.at(0) * returned.at(1) << std::endl;
+        std::cout << "(" << found[0] << ", " << found[1] << ")" << std::endl;
+        std::cout << "Result: " << found[0] * found[1] << std::endl;
     }
     else 
     {
