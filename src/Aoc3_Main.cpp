@@ -44,34 +44,16 @@ int main(int argc, char** argv)
 
     // PROCESS: ------------------------------------------------------------------------------------------------------------
     // slurp the input file into a vector
-    std::ifstream fsInput(sPath);
-    if (!fsInput)
+    auto fsInput = std::make_unique<std::ifstream>( std::ifstream{ sPath } );
+    if (fsInput == nullptr)
     {
         std::cerr << "!! ERROR !! : opening " << sPath << " failed." << std::endl;
         return 1;
     }
 
-    TreeDetector treeScanner(RightStep);
-    char cBuffer[100]; // more than enough room to read a number < 2020
-    int total = 0;
-    // TODO: Our down step is 1 by default, we'll adjust this later to make room for an arbitrary down step.
-    // since our default is to go down 1, we simply skip the first line of input
-    int currentLine = 1;
-    fsInput.getline(cBuffer, 100); // Eat it into oblivion
-    while( fsInput )
-    {
-        fsInput.getline(cBuffer, 100);
-        //std::string strBuffer{ cBuffer };
-        if (cBuffer[0] == '\n' || cBuffer[1] == '\n')
-        {
-            //std::cout << " DEBUG: picked up empty line " << std::endl;
-        } 
-        else {
-            total += treeScanner.DetectTree(currentLine*RightStep, cBuffer) ? 
-                1 : 0;
-        }
-    }
+    TreeDetector treeScanner(RightStep, std::move(fsInput) );
+    
+    std::cout << treeScanner.DetectTrees() << std::endl;
 
-    std::cout << "Total: " << total << std::endl;
     return 0;
 }

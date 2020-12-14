@@ -1,48 +1,55 @@
+#include <memory>
+#include <sstream>
+#include <istream>
+
 #include "gmock/gmock.h"
 #include "TreeDetector.h"
 
 using namespace AdventOfCode2020;
 
-TEST (TreeDetector_DetectTree, None_RightStep1Basic)
+TEST (TreeDetector_DetectTrees, NoTreesInSight)
 {
-    TreeDetector td(1);
+    std::string input("...........");
 
-    for (int i=0;i<11;i++)
+    for(int i=1; i<11; i++)
     {
-        bool result = td.DetectTree(i, "...........");
-        ASSERT_FALSE(result);
-    }
+        auto inputStream = std::make_unique<std::istringstream>( std::istringstream{ input } );
+        TreeDetector td(i, std::move(inputStream));
+        ASSERT_EQ(0, td.DetectTrees());
+    }    
 }
 
-TEST (TreeDetector_DetectTree, All_RightStep1Basic)
+TEST (TreeDetector_DetectTrees, TreesEverywhere)
 {
-    TreeDetector td(1);
+    std::string input("###########");
+    int size = input.length();
 
-    for (int i=0;i<11;i++)
+    for(int i=1; i<size; i++)
     {
-        bool result = td.DetectTree(i, "###########");
-        ASSERT_TRUE(result);
-    }
+        auto inputStream = std::make_unique<std::istringstream>( std::istringstream{ input } );
+        TreeDetector td(i, std::move(inputStream));
+        ASSERT_EQ(size, td.DetectTrees());
+    }    
 }
 
-TEST (TreeDetector_DetectTree, None_RightStep1Continuum)
-{
-    TreeDetector td(1);
+// TEST (TreeDetector_DetectTree, SevenCorect)
+// {
+//     std::vector<std::string> inputData{
+//         "..##.......", 
+//         "#...#...#..",
+//         ".#....#..#.",
+//         "..#.#...#.#",
+//         ".#...##..#.",
+//         "..#.##.....",
+//         ".#.#.#....#",
+//         ".#........#",
+//         "#.##...#...",
+//         "#...##....#",
+//         ".#..#...#.#"
+//     };
 
-    for (int i=0;i<100;i++)
-    {
-        bool result = td.DetectTree(i, "...........");
-        ASSERT_FALSE(result);
-    }
-}
+//     TreeDetector td(3);
 
-TEST (TreeDetector_DetectTree, All_RightStep1Continuum)
-{
-    TreeDetector td(1);
-
-    for (int i=0;i<100;i++)
-    {
-        bool result = td.DetectTree(i, "###########");
-        ASSERT_TRUE(result);
-    }
-}
+//     ASSERT_FALSE(td.DetectTree(3, inputData.at(1).c_str()));
+//     ASSERT_TRUE(td.DetectTree(6, inputData.at(2).c_str()));
+// }
