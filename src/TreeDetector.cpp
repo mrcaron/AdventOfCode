@@ -2,37 +2,31 @@
 
 #include <string>
 
-bool AdventOfCode2020::TreeDetector::DetectTree(const int target, const std::string& scanLine)
+bool AdventOfCode2020::TreeDetector::detectTree(const int target, const std::string& scanLine)
 {
     return scanLine[target % scanLine.length()] == TREE;
 }
 
-int AdventOfCode2020::TreeDetector::DetectTrees() { 
+int AdventOfCode2020::TreeDetector::DetectTrees() 
+{ 
+    int total = 0;
+    int loc = 0;
+    int pos = 0;
 
-    // TODO: RE-IMPLEMENT HERE
-    //
-    // char cBuffer[100]; // more than enough room to read a number < 2020
-    // int total = 0;
-    // // TODO: Our down step is 1 by default, we'll adjust this later to make room for an arbitrary down step.
-    // // since our default is to go down 1, we simply skip the first line of input
-    // int currentLine = 1;
-    // int currentPos = 0;
-    // fsInput.getline(cBuffer, 100); // Eat it into oblivion
-    // while( fsInput )
-    // {
-    //     fsInput.getline(cBuffer, 100);
-    //     //std::string strBuffer{ cBuffer };
-    //     if (cBuffer[0] == '\n' || cBuffer[1] == '\n')
-    //     {
-    //         //std::cout << " DEBUG: picked up empty line " << std::endl;
-    //     } 
-    //     else {
-    //         total += treeScanner.DetectTree(currentLine*RightStep, cBuffer) ? 
-    //             1 : 0;
-    //     }
-    // }
+    for(std::string sBuffer; std::getline(_sInput, sBuffer); loc++)
+    {
+        if ( _iDownStep > 0 && ( loc < _iDownStep || loc % _iDownStep )) 
+        { 
+            continue;
+        }
+        else
+        //if (_iDownStep < 1 || ! loc % _iDownStep)
+        {
+            pos += _iRightStep;
+            int numTree = (int)detectTree( pos, sBuffer);
+            total += numTree;
+        }
+    }
 
-    // std::cout << "Total: " << total << std::endl;
-
-    return 0; 
+    return total; 
 }

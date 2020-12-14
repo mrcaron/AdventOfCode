@@ -9,11 +9,11 @@ namespace AdventOfCode2020 {
     {
     private:
         static const char TREE = '#';
-        int _iRightStep;
-        std::unique_ptr<std::istream> _pInputStream;
-        bool DetectTree(const int target, const std::string& scanLine);
+        int _iDownStep, _iRightStep;
+        std::istream& _sInput;
+        bool detectTree(const int target, const std::string& scanLine);
     public:
-        TreeDetector(const int RightStep, std::unique_ptr<std::istream> inputStream) : _iRightStep(RightStep), _pInputStream(std::move(inputStream)) { }
+        TreeDetector(const int DownStep, const int RightStep, std::istream& inputStream) : _iDownStep(DownStep), _iRightStep(RightStep), _sInput(inputStream) { }
         ~TreeDetector() {}
 
         int DetectTrees();

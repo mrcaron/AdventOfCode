@@ -1,6 +1,6 @@
 #include <memory>
 #include <sstream>
-#include <istream>
+#include <iostream>
 
 #include "gmock/gmock.h"
 #include "TreeDetector.h"
@@ -10,11 +10,12 @@ using namespace AdventOfCode2020;
 TEST (TreeDetector_DetectTrees, NoTreesInSight)
 {
     std::string input("...........");
+    int size = input.length();
 
-    for(int i=1; i<11; i++)
+    for(int i=1; i<size; i++)
     {
-        auto inputStream = std::make_unique<std::istringstream>( std::istringstream{ input } );
-        TreeDetector td(i, std::move(inputStream));
+        auto inputStream = std::istringstream{ input };
+        TreeDetector td(0, i, inputStream);
         ASSERT_EQ(0, td.DetectTrees());
     }    
 }
@@ -26,30 +27,130 @@ TEST (TreeDetector_DetectTrees, TreesEverywhere)
 
     for(int i=1; i<size; i++)
     {
-        auto inputStream = std::make_unique<std::istringstream>( std::istringstream{ input } );
-        TreeDetector td(i, std::move(inputStream));
-        ASSERT_EQ(size, td.DetectTrees());
+        auto inputStream = std::istringstream{ input };
+        TreeDetector td(0, i, inputStream);
+        ASSERT_EQ(1, td.DetectTrees());
     }    
 }
 
-// TEST (TreeDetector_DetectTree, SevenCorect)
-// {
-//     std::vector<std::string> inputData{
-//         "..##.......", 
-//         "#...#...#..",
-//         ".#....#..#.",
-//         "..#.#...#.#",
-//         ".#...##..#.",
-//         "..#.##.....",
-//         ".#.#.#....#",
-//         ".#........#",
-//         "#.##...#...",
-//         "#...##....#",
-//         ".#..#...#.#"
-//     };
+TEST (TreeDetector_DetectTrees, NoTreesInSight_Continuum)
+{
+    std::string input("...........");
 
-//     TreeDetector td(3);
+    for(int i=1; i<100; i++)
+    {
+        auto inputStream = std::istringstream{ input };
+        TreeDetector td(0, i, inputStream);
+        ASSERT_EQ(0, td.DetectTrees());
+    }    
+}
 
-//     ASSERT_FALSE(td.DetectTree(3, inputData.at(1).c_str()));
-//     ASSERT_TRUE(td.DetectTree(6, inputData.at(2).c_str()));
-// }
+TEST (TreeDetector_DetectTrees, TreesEverywhere_Continuum)
+{
+    std::string input("###########");
+
+    for(int i=1; i<100; i++)
+    {
+        auto inputStream = std::istringstream{ input };
+        TreeDetector td(0, i, inputStream);
+        ASSERT_EQ(1, td.DetectTrees());
+    }    
+}
+
+void _ResetInput(std::stringstream &inputStream, const std::vector<std::string> &vInput)
+{
+    inputStream.clear();
+    for (auto &&l : vInput)
+    {
+        inputStream << l << std::endl;
+    }    
+}
+
+TEST (TreeDetector_DetectTree, SevenCorect_Slope1D3R)
+{
+    std::vector<std::string> inputData{
+        "..##.......",
+        "#...#...#..",
+        ".#....#..#.",
+        "..#.#...#.#",
+        ".#...##..#.",
+        "..#.##.....",
+        ".#.#.#....#",
+        ".#........#",
+        "#.##...#...",
+        "#...##....#",
+        ".#..#...#.#"
+    };
+
+
+    std::stringstream sInputData;
+    _ResetInput(sInputData, inputData);
+    TreeDetector td(1, 3, sInputData);
+    ASSERT_EQ(7, td.DetectTrees());
+}
+
+TEST (TreeDetector_DetectTree, SevenCorect_Slope2D1R)
+{
+    std::vector<std::string> inputData{
+        "..##.......",
+        "#...#...#..",
+        ".#....#..#.",
+        "..#.#...#.#",
+        ".#...##..#.",
+        "..#.##.....",
+        ".#.#.#....#",
+        ".#........#",
+        "#.##...#...",
+        "#...##....#",
+        ".#..#...#.#"
+    };
+
+    std::stringstream sInputData;
+    _ResetInput(sInputData, inputData);
+    TreeDetector td(2, 1, sInputData);
+    ASSERT_EQ(2, td.DetectTrees());
+}
+
+TEST (TreeDetector_DetectTree, SevenCorect_Slope3D2R)
+{
+    std::vector<std::string> inputData{
+        "..##.......",
+        "#...#...#..",
+        ".#....#..#.",
+        "..#.#...#.#",
+        ".#...##..#.",
+        "..#.##.....",
+        ".#.#.#....#",
+        ".#........#",
+        "#.##...#...",
+        "#...##....#",
+        ".#..#...#.#"
+    };
+
+    std::stringstream sInputData;
+    _ResetInput(sInputData, inputData);
+    TreeDetector td(3, 2, sInputData);
+    ASSERT_EQ(1, td.DetectTrees());
+}
+
+TEST (TreeDetector_DetectTree, SevenCorect_Slope2D3R)
+{
+    std::vector<std::string> inputData{
+        "..##.......",
+        "#...#...#..",
+        ".#....#..#.",
+        "..#.#...#.#",
+        ".#...##..#.",
+        "..#.##.....",
+        ".#.#.#....#",
+        ".#........#",
+        "#.##...#...",
+        "#...##....#",
+        ".#..#...#.#"
+    };
+
+    std::stringstream sInputData;
+    _ResetInput(sInputData, inputData);
+    TreeDetector td(2, 3, sInputData);
+    ASSERT_EQ(2, td.DetectTrees());
+}
