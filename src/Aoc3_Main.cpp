@@ -29,13 +29,25 @@ int main(int argc, char** argv)
         return 1; 
     }
 
-    // INPUT: Check Input Right Step
+    // INPUT: Check Input Down Step
     if (argc < 3)
+    {
+        std::cerr << "Please provide a down step." << std::endl;
+        return 1;
+    }
+    int DownStep = atoi(argv[2]);
+    if (DownStep == 0)
+    {
+        std::cerr << "Expected a right step > 0." << std::endl;
+    }
+    
+    // INPUT: Check Input Right Step
+    if (argc < 4)
     {
         std::cerr << "Please provide a right step." << std::endl;
         return 1;
     }
-    int RightStep = atoi(argv[2]);
+    int RightStep = atoi(argv[3]);
     if (RightStep == 0)
     {
         std::cerr << "Expected a right step > 0." << std::endl;
@@ -44,14 +56,14 @@ int main(int argc, char** argv)
 
     // PROCESS: ------------------------------------------------------------------------------------------------------------
     // slurp the input file into a vector
-    auto fsInput = std::make_unique<std::ifstream>( std::ifstream{ sPath } );
-    if (fsInput == nullptr)
+    auto fsInput = std::ifstream{ sPath };
+    if (! fsInput)
     {
         std::cerr << "!! ERROR !! : opening " << sPath << " failed." << std::endl;
         return 1;
     }
 
-    TreeDetector treeScanner(RightStep, std::move(fsInput) );
+    TreeDetector treeScanner(DownStep, RightStep, fsInput );
     
     std::cout << treeScanner.DetectTrees() << std::endl;
 
