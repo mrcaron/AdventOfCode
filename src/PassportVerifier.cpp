@@ -3,5 +3,9 @@
 
 bool AdventOfCode2020::PassportVerifier::Verify( std::string input )
 {
-    return true;
+    bool result = true;
+
+    // TODO: tokenize the string input and analyze the keys  
+
+    return result;
 }
