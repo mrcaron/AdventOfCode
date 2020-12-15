@@ -41,6 +41,7 @@ set(SOURCES
     ../src/SumFinder.cpp
     ../src/PasswordVerifier.cpp
     ../src/TreeDetector.cpp
+    ../src/PassportVerifier.cpp
 )
 
 add_executable(${BINARY})

@@ -13,6 +13,14 @@ set (SOURCES_AOC3
     TreeDetector.cpp
 )
 
+set (SOURCES_AOC4 
+    Aoc4_Main.cpp
+    PasswordVerifier.cpp
+)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -o3")
+add_executable(aoc4 ${SOURCES_AOC4})
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -o3")
 add_executable(aoc3 ${SOURCES_AOC3})
 
