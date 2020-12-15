@@ -1,11 +1,25 @@
 #include <string>
+#include <sstream>
+#include <cstddef>
 #include "PassportVerifier.h"
 
 bool AdventOfCode2020::PassportVerifier::Verify( std::string input )
 {
-    bool result = true;
+    std::stringstream inputStream {input};
+    std::byte passport {0};
 
-    // TODO: tokenize the string input and analyze the keys  
+    for(std::string token; std::getline(inputStream, token, ' ');)
+    {
+        int pos = token.find(':');
+        auto key = token.substr(0,pos);
+        auto it = KEYS.find(key);
+        if (it != KEYS.end())
+        {
+            passport |= it->second;
+        }
+    }
 
-    return result;
+    passport ^= std::byte{255};
+
+    return static_cast<unsigned char>(passport) < 2;
 }
