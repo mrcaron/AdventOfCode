@@ -18,6 +18,14 @@ set (SOURCES_AOC4
     PassportVerifier.cpp
 )
 
+set (SOURCES_AOC5 
+    Aoc5_Main.cpp
+    BoardingPass.cpp
+)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -o3")
+add_executable(aoc5 ${SOURCES_AOC5})
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -o3")
 add_executable(aoc4 ${SOURCES_AOC4})
 

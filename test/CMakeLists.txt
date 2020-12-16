@@ -42,6 +42,7 @@ set(SOURCES
     ../src/PasswordVerifier.cpp
     ../src/TreeDetector.cpp
     ../src/PassportVerifier.cpp
+    ../src/BoardingPass.cpp
 )
 
 add_executable(${BINARY})
