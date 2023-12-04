@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisMode>Minimum</AnalysisMode>
+
+    <BaseIntermediateOutputPath>..\obj\</BaseIntermediateOutputPath>
+    <BaseOutputPath>..\bin\</BaseOutputPath>
+    
+  </PropertyGroup>
+</Project>
